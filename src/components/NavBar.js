@@ -59,7 +59,7 @@ export const NavBar = () => {
                 
             </div>
             <button className="vvd" onclick={()=> console.log('connect')}>
-                <span>Les's Connect</span>
+                <span>Lets's Connect</span>
             </button>
           </span>
         </Navbar.Collapse>
