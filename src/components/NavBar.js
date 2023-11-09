@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
+import logo from "../assets/logo.png";
+
 export const NavBar = () => {
     const [activeLink, setActiveLink] = useState('home');
     const [scrolled, seScrolled] = useState(false);
@@ -32,7 +34,7 @@ export const NavBar = () => {
     <Navbar expand="lg" className={scrolled ? "scrolled":""}>
       <Container>
         <Navbar.Brand href="#home">
-            <img src={''} alt="Logo"/>
+            <img src={logo} alt="Logo" id="logo-nav-bar"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -58,9 +60,7 @@ export const NavBar = () => {
                 <a href="https://github.com/lucasassis49/"><FaGithub size={25} color="white"/></a>
                 
             </div>
-            <button className="vvd" onclick={()=> console.log('connect')}>
-                <span>Lets's Connect</span>
-            </button>
+           
           </span>
         </Navbar.Collapse>
       </Container>
