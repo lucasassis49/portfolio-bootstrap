@@ -40,8 +40,8 @@ export const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link': 'navbar-link'} onclick={()=>onUpdateActiveLink('home')}>Home</Nav.Link>
-            <Nav.Link href="#habilidades" className={activeLink === 'habilidades' ? 'active navbar-link': 'navbar-link'} onclick={()=>onUpdateActiveLink('habilidades')}>Habilidades</Nav.Link>
-            <Nav.Link href="#projetos" className={activeLink === 'projetos' ? 'active navbar-link': 'navbar-link'}onclick={()=>onUpdateActiveLink('projetos')}>Projetos</Nav.Link>
+            <Nav.Link href="#skills" className={activeLink === 'habilidades' ? 'active navbar-link': 'navbar-link'} onclick={()=>onUpdateActiveLink('habilidades')}>Habilidades</Nav.Link>
+            <Nav.Link href="#project" className={activeLink === 'projetos' ? 'active navbar-link': 'navbar-link'}onclick={()=>onUpdateActiveLink('projetos')}>Projetos</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

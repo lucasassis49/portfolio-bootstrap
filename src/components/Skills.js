@@ -47,47 +47,44 @@ export const Skills = () => {
                 className="skill-slider"
               >
                 <div className="item">
-                  <img src={react} alt="Image" />
+                  <img src={react} alt="ImageReact" />
                   <h5>React</h5>
                 </div>
                 <div className="item">
-                  <img src={next} alt="Image" />
+                  <img src={next} alt="ImageNext" />
                   <h5>Next</h5>
                 </div>
                 <div className="item">
-                  <img src={typescript} alt="Image" />
+                  <img src={typescript} alt="ImageType" />
                   <h5>TypeScript</h5>
                 </div>
                 <div className="item">
-                  <img src={node} alt="Image" />
+                  <img src={node} alt="ImageNode" />
                   <h5>Node JS</h5>
                 </div>
                 <div className="item">
-                  <img src={html} alt="Image" />
+                  <img src={html} alt="ImageHtml" />
                   <h5>HTML</h5>
                 </div>
                 <div className="item">
-                  <img src={css} alt="Image" />
+                  <img src={css} alt="ImageCss" />
                   <h5>CSS</h5>
                 </div>
                 <div className="item">
-                  <img src={js} alt="Image" />
+                  <img src={js} alt="ImageJs" />
                   <h5>JS</h5>
                 </div>
+                
                 <div className="item">
-                  <img src={html} alt="Image" />
-                  <h5>HTML</h5>
-                </div>
-                <div className="item">
-                  <img src={tailwind} alt="Image" />
+                  <img src={tailwind} alt="ImageTailwind" />
                   <h5>Tailwind</h5>
                 </div>
                 <div className="item">
-                  <img src={firebase} alt="Image" />
+                  <img src={firebase} alt="ImageFirebase" />
                   <h5>Firebase</h5>
                 </div>
                 <div className="item">
-                  <img src={mysql} alt="Image" />
+                  <img src={mysql} alt="ImageMysql" />
                   <h5>MySql</h5>
                 </div>
               </Carousel>
