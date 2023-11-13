@@ -1,86 +1,106 @@
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import emailjs from "@emailjs/browser";
+import logo from "../assets/logo.jpg";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 export const Contact = () => {
-  const formInitialDetails = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
-  const handleSubmit = () => {
-    
-  }
-
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
 
-  const onFormUpdate = (category, value) => {
-    setFormDetails({
-      ...formDetails,
-      [category]: value,
-    });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const templateParams = {
+    from_name: name,
+    message: message,
+    email: email,
+    phone: phone,
   };
+
+  function envioEmail() {
+    emailjs
+      .send(
+        "service_o2fx5o3",
+        "template_6791137",
+        templateParams,
+        "k29zr_2YLXAjnNExk"
+      )
+      .then(
+        (response) => {
+          console.log("Email enviado!", response.status, response.text);
+          setName("");
+          setEmail("");
+          setMessage("");
+          setPhone("");
+        },
+        (erro) => {
+          console.log("Erro:", erro);
+        }
+      );
+  }
 
   return (
     <section className="contact" id="connect">
       <Container>
         <Row className="align-items-center">
+         
           <Col md={6}>
-            <img src="" alt="imgContact"></img>
-          </Col>
-          <Col md={6}>
-            <h2> Get In Touch</h2>
+            <h2> Entrar em contato</h2>
             <form onSubmit={handleSubmit}>
               <Row>
-                <Col sm={6} className="px-1">
+                <Col sm={11.5} className="px-1">
                   <input
                     type="text"
-                    value={formDetails.firstName}
-                    placeholder="First Name"
-                    onChange={(e) => onFormUpdate("firstName", e.target.value)}
+                    value={name}
+                    placeholder="Nome"
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </Col>
-                <Col sm={6} className="px-1">
+
+                <Col sm={11.5} className="px-1">
                   <input
                     type="text"
-                    value={formDetails.lastName}
-                    placeholder="Last Name"
-                    onChange={(e) => onFormUpdate("LastName", e.target.value)}
-                  />
-                </Col>
-                <Col sm={6} className="px-1">
-                  <input
-                    type="text"
-                    value={formDetails.email}
+                    value={email}
                     placeholder="Email"
-                    onChange={(e) => onFormUpdate("email", e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </Col>
-                <Col sm={6} className="px-1">
+                <Col sm={11.5} className="px-1">
                   <input
                     type="text"
-                    value={formDetails.phone}
-                    placeholder="Phone"
-                    onChange={(e) => onFormUpdate("phone", e.target.value)}
+                    value={phone}
+                    placeholder="Telefone"
+                    onChange={(e) => setPhone(e.target.value)}
                   />
                 </Col>
               </Row>
+              <Col>
+                <textarea
+                  row="6"
+                  value={message}
+                  placeholder="Mensagem"
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+                <button type="submit" onClick={envioEmail}>
+                  <span>Enviar</span>
+                </button>
+              </Col>
             </form>
           </Col>
-          <Col>
-            <textarea row='6' value={formDetails.message} placeholder="Message" onChange={(e)=>onFormUpdate("message", e.target.value)}/>
-            <button type="submit"><span>{buttonText}</span></button>
+          <Col sm={6}>
+            <span className="span-contato">E-mail para contato</span>
+            <p className="p-contato">lucasassisdev@gmail.com</p>
+            <span className="span-contato">E-mail para contato</span>
+            <p className="p-contato">lucasassisdev@gmail.com</p>
           </Col>
-          {
-            status.message && 
-            <Col>
-                <p className={status.success === false ? "danger" : "sucess"}>{status.message}</p>
-            </Col>
-          }
+          
         </Row>
       </Container>
     </section>
